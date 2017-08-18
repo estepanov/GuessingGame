@@ -1,0 +1,38 @@
+.footerImages {
+    width: 80%;
+}
+
+.centerAll {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+}
+#headers {
+    margin-top: 50px;
+}
+
+#main {
+    margin-top: 30px;
+}
+
+#menu-btns {
+    margin: 10px;
+    padding: 10px;
+    /** border-top:#B6B6B6 1px solid; **/
+}
+
+#footer {
+    margin-top: 60px; 
+}
+
+.projectBy {
+    color: gray;
+    margin: 0px;
+    margin-top: 5px; 
+    padding: 0px;
+}
+
+.name {
+    margin: 0px;
+    padding: 0px;
+}

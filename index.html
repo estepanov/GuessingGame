@@ -1,76 +1,72 @@
 <html lang="en">
     <head>
       <title>Super Guessing Game</title>
-        <link href="style.css" rel="stylesheet">
+      <link href="style.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!-- Bootstrap and CSS here-->
-      <style>
-        .center {
-          text-align: center;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        img {
-            display: inline;
-            width: 200px;
-            height: 100px;
-        }
-        #footer {
-            width: 100%;
-            border-top: solid 2px black;
-            background-color: white;
-            position: fixed;
-            bottom: 0;
-        }
-      </style>
-  
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-  
-        <div id='app'>
+      <div class="container">
+        <div id='container'>
   
           <div id='headers'>
-            <h1>WaCkY Guessing Game!</h1>
-            <h3>Guess a number between <b>1</b> and <b>100</b>.</h3>
+            <div class="row">
+              <div class="col-lg-12 centerAll"><h1>WaCkY Guessing Game!</h1></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 centerAll">Guess a number between <b>1</b> and <b>100</b>.</div>
+            </div>
           </div>
-  
+
           <div id='main'>
             <div id='input-parent'>
               <!-- Player's guess input, and submit button -->
+              <form>
+                  <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Lets try...</span>
+                      <input type="text" class="form-control" autofocus placeholder="enter your guess here" aria-describedby="basic-addon1">
+                      <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Submit your guess!</button>
+                        </span>
+                    </div>
+              </form>
             </div>
   
             <div id='guesses'>
               <!-- unordered list of guesses -->
+              4<br>
+              43<br>
+              2<br>
+              93<br>
+              49<br>
+              63<br>
+              31<br>
             </div>
   
             <div id="menu-btns">
               <!-- reset and hint buttons -->
+              <div class="row CenterAll">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-default btn-group-lg">Help</button>
+                  <button type="button" class="btn btn-default btn-group-lg">Reset</button>
+                  <button type="button" class="btn btn-default btn-group-lg">Clear</button>
+                  <button type="button" class="btn btn-default btn-group-lg">Hints?</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
   
   
   
-      <div id='footer'>
-          <div>
-            <div class=''>
-              <img src='fa-logo@2x.png'></img>
-            </div>
-  
-            <div class=''>
-              <h4>Project by YOUR NAME HERE</h4>
-            </div>
-  
-            <div class=''>
-              <img src='grace_hopper_academy.png'></img>
-            </div>
-  
-  
+        <div id='footer'>
+          <div class="row">
+            <div class="col-md-4 centerAll"><img src='fa-logo@2x.png' class="footerImages"></img></div>
+            <div class="col-md-4 centerAll"><div class="projectBy">Project by</div><h4 class="name">Evans Stepanov</h4></div>
+            <div class="col-md-4 centerAll"><img src='grace_hopper_academy.png' class="footerImages"></img></div>
           </div>
+        </div>
       </div>
-  
-    </body>
+    </div>
+  </body>
   </html>
