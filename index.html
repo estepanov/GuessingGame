@@ -21,26 +21,33 @@
           <div id='main'>
             <div id='input-parent'>
               <!-- Player's guess input, and submit button -->
-              <form>
+              <div class="row">
+                <form>
                   <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon1">Lets try...</span>
-                      <input type="text" class="form-control" autofocus placeholder="enter your guess here" aria-describedby="basic-addon1">
-                      <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Submit your guess!</button>
-                        </span>
-                    </div>
-              </form>
+                    <span class="input-group-addon" id="basic-addon1">Lets try...</span>
+                    <input type="text" class="form-control" autofocus="autofocus" placeholder="enter your number guess here" maxlength="3">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Submit your guess!</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
             </div>
   
             <div id='guesses'>
               <!-- unordered list of guesses -->
-              4<br>
-              43<br>
-              2<br>
-              93<br>
-              49<br>
-              63<br>
-              31<br>
+              <div class="row centerAll">
+                <span class="descriptor">your previous guesses</span>
+                  <ul class="guessList centerAll">
+                    <li class="items">763</li>
+                    <li class="items">982</li>
+                    <li class="items">532</li>
+                    <li class="items">241</li>
+                    <li class="items">142</li>
+                    <li class="items">432</li>
+                    <li class="items">42</li>
+                  </ul>
+              </div>
             </div>
   
             <div id="menu-btns">
@@ -62,7 +69,7 @@
         <div id='footer'>
           <div class="row">
             <div class="col-md-4 centerAll"><img src='fa-logo@2x.png' class="footerImages"></img></div>
-            <div class="col-md-4 centerAll"><div class="projectBy">Project by</div><h4 class="name">Evans Stepanov</h4></div>
+            <div class="col-md-4 centerAll"><div class="projectBy">PROJECT BY</div><h4 class="name">Evans Alexis Stepanov</h4></div>
             <div class="col-md-4 centerAll"><img src='grace_hopper_academy.png' class="footerImages"></img></div>
           </div>
         </div>
