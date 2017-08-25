@@ -22,9 +22,9 @@ body {
 }
 
 #menu-btns {
-    margin: 10px;
+    margin-top: 50px;
     padding: 10px;
-    /** border-top:#B6B6B6 1px solid; **/
+     /* border-top:#B6B6B6 1px solid; */
 }
 
 #footer {
@@ -44,6 +44,7 @@ body {
 
 .name {
     margin: 0px;
+    font-size: 28px;
     padding: 0px;
 }
 .guessList {
@@ -57,14 +58,56 @@ body {
 .guessList .items {
     border-radius: 10%;
     display: inline-block;
-    padding: 8px;
+    padding: 6px;
     width: 50px;
     font-size: 18px;
+    /* font-weight: bold; */
+    background-color: #ff0039;
+    color: #ffffff;
+    border: 1px solid #ff0039;
+}
+
+.guessList .items h5 {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;    
+    color: black;
+    display: block;
+    font-size: 10px;
     font-weight: bold;
-    border: 1px solid black;
+    color: #690017;
 }
 
 .descriptor {
     font-style: italic;
 
+}
+
+.guessInput {
+    margin: 0px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    font-size:100px;
+    font-weight: bolder;
+    border: 10px solid #1a6ecc;
+}
+
+.guessTry {
+    position: relative;
+    top: 70px;
+    left: -60px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size:18px;
+    font-weight: bolder;
+    background-color: #3fb618;
+    border: 3px solid #3fb618;
 }
