@@ -19,8 +19,26 @@ body {
     right: 15%;
     left: 15%;
     padding: 10px;
-    /* width: 80%;
-    height: 80%; */
+}
+
+#winMsg {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    background-color: white;
+    color: green;
+    border: 10px solid green;
+    top: 5%;
+    right: 15%;
+    left: 15%;
+    padding: 10px;
+}
+
+#guessedNumber {
+    display: inline;
 }
 
 #hintBox {

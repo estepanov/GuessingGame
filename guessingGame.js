@@ -73,10 +73,10 @@ function generateHistory(obj) {
 }
 
 function generateHints(obj) {
-    var result = 'Your guess : <b>' + obj.playersGuess + '</b><br>';
-    (obj.isLower()) ? result += 'is lower than the winning number' : result += 'is not lower than the winning number';
-    result += '<br>';
-    if (obj.pastGuesses.length > 3) result += 'the winning number minus your guess is... ' + obj.difference();
+    var result = '<h1>Hint!</h1>Your guess : <b>' + obj.playersGuess + '</b><br><br>';
+    (obj.isLower()) ? result += '... is lower than the winning number' : result += 'is greater than the winning number';
+    result += '<br><br>';
+    if (obj.pastGuesses.length > 3) result += '... and the difference from the winning number is: ' + obj.difference();
     return result;
 }
 
@@ -89,6 +89,7 @@ $(document).ready(function() {
     var inputBox = $('form').find('#guessInput');
     var guess = $('#guesses');
     var hintBox = $('#hintBox');
+    var winMsg = $('#winMsg');
     var escapeMsg = $('#escapeMsg');
 
     //escape key to reset.
@@ -108,6 +109,7 @@ $(document).ready(function() {
         guess.hide();
         hintBox.hide();
         escapeMsg.hide();
+        winMsg.hide();
 
         // enable input box and show submit button;
         inputBox.prop('disabled', false);
@@ -130,12 +132,10 @@ $(document).ready(function() {
     });
 
     $('#theAction').submit(function(e) {
-        
         errBox.hide();
         feedback.hide();
         hintBox.hide();
 
-        console.log('Submit button has been clicked', e)
         var result;
         var guessInput = parseInt(inputBox.val());
 
@@ -163,10 +163,17 @@ $(document).ready(function() {
                 $('#clear').hide();
                 inputBox.prop('disabled', true);
             }
+            if (result === 'You Win!') {
+                winMsg.find('#guessedNumber').html(currGame.winningNumber);
+                winMsg.show();
+                submitButton.hide();
+                $('#clear').hide();
+                inputBox.prop('disabled', true);
+            }
 
         }
 
-        inputBox.val("");
+        inputBox.val('');
         inputBox.focus();
         e.preventDefault();
     });
