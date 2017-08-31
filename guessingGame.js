@@ -8,7 +8,7 @@ function generateWinningNumber () {
 
 function shuffle(arr) {
     var init = Math.random();
-    var initInt = (init * 10)-4;
+    var initInt = (init * 10) - 4;
     var initIntFin = Math.abs(Math.floor(initInt));
     if (initIntFin >= arr.length) initIntFin = 1;
     var removed = [];
@@ -34,8 +34,8 @@ Game.prototype.isLower = function () {
 }
 
 Game.prototype.playersGuessSubmission = function (newGuess) {
-    console.log("34343434343434",newGuess===NaN,"ssdd",newGuess);
-    if (isNaN(newGuess) || typeof(newGuess)!= "number" || newGuess < 1 || newGuess > 100) {
+
+    if (isNaN(newGuess) || typeof (newGuess) != 'number' || newGuess < 1 || newGuess > 100) {
         throw 'That is an invalid guess.';
     } else {
         this.playersGuess = newGuess;
@@ -64,19 +64,19 @@ Game.prototype.provideHint = function () {
 }
 
 function generateHistory(obj) {
-    var listString = "";
-    var header = ["1st","2nd","3rd","4th","FINAL"];
-    for(var i = 0; i<obj.pastGuesses.length; i++) {
-        listString+='<li class="items"><h5>'+header[i]+'</h5>'+obj.pastGuesses[i]+'</li>';
+    var listString = '';
+    var header = ['1st', '2nd', '3rd', '4th', 'FINAL'];
+    for (var i = 0; i < obj.pastGuesses.length; i++) {
+        listString += '<li class="items"><h5>' + header[i] + '</h5>' + obj.pastGuesses[i] + '</li>';
     }
     return listString;
 }
 
 function generateHints(obj) {
-    var result = "Your guess : <b>" + obj.playersGuess + "</b><br>";
-    (obj.isLower()) ? result+="is lower than the winning number" : result+="is not lower than the winning number";
-    result+="<br>";
-    if(obj.pastGuesses.length > 3) result+="the winning number minus your guess is... " + obj.difference(); 
+    var result = 'Your guess : <b>' + obj.playersGuess + '</b><br>';
+    (obj.isLower()) ? result += 'is lower than the winning number' : result += 'is not lower than the winning number';
+    result += '<br>';
+    if (obj.pastGuesses.length > 3) result += 'the winning number minus your guess is... ' + obj.difference();
     return result;
 }
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
     var escapeMsg = $('#escapeMsg');
 
     //escape key to reset.
-    $(document).on('keyup',function(evt) {
+    $(document).on('keyup', function(evt) {
         if (evt.keyCode == 27) {
             resetGame();
         }
@@ -100,21 +100,19 @@ $(document).ready(function() {
 
     function clearGame (obj) {
         //if obj is passed, clear past guesses
-        if(obj!=undefined) obj.pastGuesses = [];
-    
+        if (obj != undefined) obj.pastGuesses = [];
+
         // Hide message boxs when button is clicked
         errBox.hide();
         feedback.hide();
         guess.hide();
         hintBox.hide();
         escapeMsg.hide();
-    
+
         // enable input box and show submit button;
         inputBox.prop('disabled', false);
-        inputBox.val("");
+        inputBox.val('');
         submitButton.show();
-
-        inputBox.val("");
         inputBox.focus();
     }
 
@@ -132,32 +130,25 @@ $(document).ready(function() {
     });
 
     $('#theAction').submit(function(e) {
-        // console.log(typeof(inputBox.val()));
-        // if(typeof(inputBox.val()) != "number") {
-        //     alert("only numbers")
-        // } else {
-        // Hide message boxs when button is clicked
+        
         errBox.hide();
         feedback.hide();
         hintBox.hide();
 
-        console.log('Submit button has been clicked',e)
+        console.log('Submit button has been clicked', e)
         var result;
         var guessInput = parseInt(inputBox.val());
-        console.log("input",guessInput,"type of",typeof(guessInput));
 
-        try{
-            
+        try {
             result = currGame.playersGuessSubmission(guessInput);
-            
         }
         catch (err) {
             errBox.show();
-            errBox.html("<b>error</b><br>"+err);
+            errBox.html('<b>error</b><br>' + err);
         }
 
         // If result is present then process:
-        if(result!=undefined) {
+        if (result != undefined) {
             //update hint
             hintBox.html(generateHints(currGame));
             guess.show();
@@ -165,25 +156,23 @@ $(document).ready(function() {
             feedback.show();
             feedback.html(result);
             // disable submissions if lost.
-            if(result==="You Lose.") {
-                console.log("user lost")
+            if (result === 'You Lose.') {
+                console.log('user lost')
                 escapeMsg.show();
                 submitButton.hide();
                 $('#clear').hide();
                 inputBox.prop('disabled', true);
-            
             }
-            
+
         }
 
         inputBox.val("");
         inputBox.focus();
-        // }
-
+        e.preventDefault();
     });
 
     $('#help').click(function(e) {
-        console.log('help button has been clicked',e)
+        console.log('help button has been clicked', e)
         $('#helpMsg').toggle();
     });
 
@@ -192,14 +181,12 @@ $(document).ready(function() {
     });
 
     $('#clear').click(function(e) {
-        console.log('clear button has been clicked',e)
+        console.log('clear button has been clicked', e)
         clearGame(currGame);
-        guess.find('#guessElem').html(generateHistory(currGame));
-        
     });
 
     $('#hints').click(function(e) {
-        console.log('hints button has been clicked',e)
+        console.log('hints button has been clicked', e)
         hintBox.toggle();
     });
 });
