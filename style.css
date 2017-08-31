@@ -59,7 +59,8 @@ body {
 #helpMsg {
     position: absolute;
     top: 10px;
-    width: 90%;
+    left: 100px;
+    right: 100px;
     padding: 10px;
     background-color: white;
     border: 10px solid blue;
