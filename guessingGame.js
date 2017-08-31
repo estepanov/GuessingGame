@@ -114,6 +114,7 @@ $(document).ready(function() {
         // enable input box and show submit button;
         inputBox.prop('disabled', false);
         inputBox.val('');
+        hintBox.html('<h1>Try a number...</h1>');
         submitButton.show();
         inputBox.focus();
     }
@@ -144,7 +145,7 @@ $(document).ready(function() {
         }
         catch (err) {
             errBox.show();
-            errBox.html('<b>error</b><br>' + err);
+            errBox.html(err);
         }
 
         // If result is present then process:

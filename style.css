@@ -25,7 +25,7 @@ body {
     position: absolute;
     z-index: 1;
     display: none;
-    font-size: 30px;
+    font-size: 14px;
     font-weight: bolder;
     text-align: center;
     background-color: white;
@@ -185,6 +185,7 @@ body {
 
 .guessTry {
     position: relative;
+    margin: auto;
     top: 70px;
     left: -60px;
     text-align: center;
@@ -201,12 +202,13 @@ body {
 
 #message {
     padding: 15px;
-    margin: 15px;
+    margin: auto;
     background: black;
     text-align: center;
     font-size: 14px;
     color: white;
     display: none;
+    width: 50%;
 }
 
 #message2 {
