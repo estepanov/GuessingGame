@@ -34,9 +34,13 @@ Game.prototype.isLower = function () {
 }
 
 Game.prototype.playersGuessSubmission = function (newGuess) {
-    if (typeof (newGuess)!== "number" || newGuess < 1 || newGuess > 100) throw 'That is an invalid guess.';
-    this.playersGuess = newGuess;
-    return this.checkGuess();
+    console.log("34343434343434",newGuess===NaN,"ssdd",newGuess);
+    if (isNaN(newGuess) || typeof(newGuess)!= "number" || newGuess < 1 || newGuess > 100) {
+        throw 'That is an invalid guess.';
+    } else {
+        this.playersGuess = newGuess;
+        return this.checkGuess();
+    }
 }
 
 Game.prototype.checkGuess = function () {
@@ -58,3 +62,144 @@ Game.prototype.provideHint = function () {
     var results = [this.winningNumber, generateWinningNumber(), generateWinningNumber()];
     return shuffle(results);
 }
+
+function generateHistory(obj) {
+    var listString = "";
+    var header = ["1st","2nd","3rd","4th","FINAL"];
+    for(var i = 0; i<obj.pastGuesses.length; i++) {
+        listString+='<li class="items"><h5>'+header[i]+'</h5>'+obj.pastGuesses[i]+'</li>';
+    }
+    return listString;
+}
+
+function generateHints(obj) {
+    var result = "Your guess : <b>" + obj.playersGuess + "</b><br>";
+    (obj.isLower()) ? result+="is lower than the winning number" : result+="is not lower than the winning number";
+    result+="<br>";
+    if(obj.pastGuesses.length > 3) result+="the winning number minus your guess is... " + obj.difference(); 
+    return result;
+}
+
+
+$(document).ready(function() {
+    var currGame = newGame();
+    var errBox = $('#message');
+    var feedback = $('#message2');
+    var submitButton = $('form').find('#submit');
+    var inputBox = $('form').find('#guessInput');
+    var guess = $('#guesses');
+    var hintBox = $('#hintBox');
+    var escapeMsg = $('#escapeMsg');
+
+    //escape key to reset.
+    $(document).on('keyup',function(evt) {
+        if (evt.keyCode == 27) {
+            resetGame();
+        }
+    });
+
+    function clearGame (obj) {
+        //if obj is passed, clear past guesses
+        if(obj!=undefined) obj.pastGuesses = [];
+    
+        // Hide message boxs when button is clicked
+        errBox.hide();
+        feedback.hide();
+        guess.hide();
+        hintBox.hide();
+        escapeMsg.hide();
+    
+        // enable input box and show submit button;
+        inputBox.prop('disabled', false);
+        inputBox.val("");
+        submitButton.show();
+
+        inputBox.val("");
+        inputBox.focus();
+    }
+
+    function resetGame () {
+        console.log('reset button has been clicked')
+        clearGame();
+        // reset game object
+        currGame = newGame();
+        $('#clear').show();
+    }
+
+
+    $('#closeBox').click(function(e) {
+        $('#helpMsg').toggle();
+    });
+
+    $('#theAction').submit(function(e) {
+        // console.log(typeof(inputBox.val()));
+        // if(typeof(inputBox.val()) != "number") {
+        //     alert("only numbers")
+        // } else {
+        // Hide message boxs when button is clicked
+        errBox.hide();
+        feedback.hide();
+        hintBox.hide();
+
+        console.log('Submit button has been clicked',e)
+        var result;
+        var guessInput = parseInt(inputBox.val());
+        console.log("input",guessInput,"type of",typeof(guessInput));
+
+        try{
+            
+            result = currGame.playersGuessSubmission(guessInput);
+            
+        }
+        catch (err) {
+            errBox.show();
+            errBox.html("<b>error</b><br>"+err);
+        }
+
+        // If result is present then process:
+        if(result!=undefined) {
+            //update hint
+            hintBox.html(generateHints(currGame));
+            guess.show();
+            guess.find('#guessElem').html(generateHistory(currGame));
+            feedback.show();
+            feedback.html(result);
+            // disable submissions if lost.
+            if(result==="You Lose.") {
+                console.log("user lost")
+                escapeMsg.show();
+                submitButton.hide();
+                $('#clear').hide();
+                inputBox.prop('disabled', true);
+            
+            }
+            
+        }
+
+        inputBox.val("");
+        inputBox.focus();
+        // }
+
+    });
+
+    $('#help').click(function(e) {
+        console.log('help button has been clicked',e)
+        $('#helpMsg').toggle();
+    });
+
+    $('#reset').click(function(e) {
+        resetGame();
+    });
+
+    $('#clear').click(function(e) {
+        console.log('clear button has been clicked',e)
+        clearGame(currGame);
+        guess.find('#guessElem').html(generateHistory(currGame));
+        
+    });
+
+    $('#hints').click(function(e) {
+        console.log('hints button has been clicked',e)
+        hintBox.toggle();
+    });
+});

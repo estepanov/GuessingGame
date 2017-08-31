@@ -1,71 +1,88 @@
 <html lang="en">
-    <head>
-      <title>Super Guessing Game</title>
-      <link href="style.css" rel="stylesheet">
-      <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
-    </head>
+  <head>
+    <title>Super Guessing Game</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
+  </head>
     <body>
       <div class="container">
   
-          <div id='headers'>
-            <div class="centerAll">
-             <h1>Super Guessing Game!</h1>
-              Guess a number between <b>1</b> and <b>100</b>.
+        <div id='headers'>
+          <div class="centerAll">
+            <h1>Super Guessing Game!</h1>
+            Guess a number between <b>1</b> and <b>100</b>.
+          </div>
+        </div>
+
+        <div id='main'>
+          <div id='input-parent'>
+            <!-- Player's guess input, and submit button -->
+            <div class="row centerAll">
+              <form id="theAction">
+                  <input id="guessInput" type="text" class="guessInput" autofocus="autofocus" placeholder="#" maxlength="3">
+                  <input id="submit" type="submit" class="guessTry" value="Go!">
+                </div>
+              </form>
             </div>
           </div>
 
-          <div id='main'>
-            <div id='input-parent'>
-              <!-- Player's guess input, and submit button -->
-              <div class="row centerAll">
-                <form>
-                    <input type="text" class="guessInput" autofocus="autofocus" placeholder="#" maxlength="3">
-                    <input type="submit" class="guessTry" value="Go!">
-                  </div>
-                </form>
-              </div>
-            </div>
+          <div id="message"></div>
+          <div id="message2"></div>
   
-            <div id='guesses'>
-              <!-- unordered list of guesses -->
-              <div class="row centerAll">
-                <span class="descriptor">previous guesses</span>
-                  <ul class="guessList centerAll">
-                    <li class="items"><h5>1st</h5>43</li>
-                    <li class="items"><h5>2nd</h5>23</li>
-                    <li class="items"><h5>3rd</h5>92</li>
-                    <li class="items"><h5>4th</h5>78</li>
-                    <li class="items"><h5>FINAL</h5>33</li>
-                  </ul>
+          <div id='guesses'>
+            <!-- unordered list of guesses -->
+            <div class="row centerAll">
+              <span class="descriptor">previous guesses</span>
+              <ul id="guessElem" class="guessList centerAll">
+              </ul>
+            </div>
+          </div>
+
+          <div id="menu-btns">
+            <!-- reset and hint buttons -->
+            <div class="row CenterAll">
+              <div class="btn-group" role="group">
+                <button id="help" type="button" class="btn btn-default btn-group-lg">Help</button>
+                <button id="reset" type="button" class="btn btn-default btn-group-lg">Reset</button>
+                <button id="clear" type="button" class="btn btn-default btn-group-lg">Clear</button>
+                <button id="hints" type="button" class="btn btn-default btn-group-lg">Hints?</button>
               </div>
             </div>
-  
-            <div id="menu-btns">
-              <!-- reset and hint buttons -->
-              <div class="row CenterAll">
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-default btn-group-lg">Help</button>
-                  <button type="button" class="btn btn-default btn-group-lg">Reset</button>
-                  <button type="button" class="btn btn-default btn-group-lg">Clear</button>
-                  <button type="button" class="btn btn-default btn-group-lg">Hints?</button>
-                </div>
+          </div>
+      
+          <div id='footer'>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="col-md-4 centerAll"><img src='fa-logo@2x.png' class="footerImages"></img></div>
+                <div class="col-md-4 centerAll"><div class="projectBy">PROJECT BY</div><div class="name">Evans Alexis Stepanov</div></div>
+                <div class="col-md-4 centerAll"><img src='grace_hopper_academy.png' class="footerImages"></img></div>
               </div>
             </div>
-        
-            <div id='footer'>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="col-md-4 centerAll"><img src='fa-logo@2x.png' class="footerImages"></img></div>
-                  <div class="col-md-4 centerAll"><div class="projectBy">PROJECT BY</div><div class="name">Evans Alexis Stepanov</div></div>
-                  <div class="col-md-4 centerAll"><img src='grace_hopper_academy.png' class="footerImages"></img></div>
-                </div>
-              </div>
-            </div>
-    
+          </div>
+          
+
+          <div id="helpMsg">
+            <div id="closeBox"><a href="#">CLOSE</a></div>
+            <h1>Welcome to my simple guessing game!<h5>
+              The object is simple: guess the random number generated by your computer. You have 5 guesses and then the round ends. 
+            <h3>I can't guess the darn number in 5 trys...</h3>
+              You can click the "hints" button to see hints on how close you are. If you really want to keep going on the same number but need more guesses click "clear".
+            <h3>I won!</h3>
+              Congratulations, click "reset" to play a new round!
+          </div>
+
+          <div id="hintBox">
+            <h1>try a number</h1>
+          </div>
+
+          <div id="escapeMsg" class="centerALL">
+            sorry, you didn't guess in 5 trys.
+            <hr>
+            Hit the ESCAPE key to reset the game<br>or<br>click RESET below
+          </div>
       </div>
-    </div>
   </body>
-  <script src="guessingGame.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="guessingGame.js"></script>
   </html>

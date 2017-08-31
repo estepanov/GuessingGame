@@ -4,6 +4,65 @@ body {
     background-size: cover;
     background-position: center center;
 }
+
+#escapeMsg {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    background-color: white;
+    color: red;
+    border: 10px solid red;
+    top: 15%;
+    right: 15%;
+    left: 15%;
+    padding: 10px;
+    /* width: 80%;
+    height: 80%; */
+}
+
+#hintBox {
+    display: none;
+    border: 10px dashed red;
+    background-color: lightcoral;
+    float: left;
+    position: absolute;
+    width: 190px;
+    top: 100px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#helpMsg {
+    position: absolute;
+    top: 10px;
+    width: 90%;
+    padding: 10px;
+    background-color: white;
+    border: 10px solid blue;
+    display: none;
+}
+
+#helpMsg h5, #helpMsg h1 {
+    margin: 0px;
+    padding: 0px;
+}
+
+#helpMsg #closeBox {
+    float: right;
+    padding: 10px;
+    border: 5px solid blue;
+    top: 20px;
+    font-size: 14px;
+    margin: 5px;
+
+}
+
 .footerImages {
     width: 80%;
 }
@@ -15,6 +74,11 @@ body {
 }
 #headers {
     margin-top: 50px;
+}
+
+#headers h1 {
+    font-weight: 800;
+    font-size: 45px;
 }
 
 #main {
@@ -34,6 +98,9 @@ body {
     background-color: white;
 }
 
+#guesses {
+    display: none;
+}
 .projectBy {
     color: gray;
     margin: 0px;
@@ -56,7 +123,7 @@ body {
 }
 
 .guessList .items {
-    border-radius: 10%;
+    border-radius: 25%;
     display: inline-block;
     padding: 6px;
     width: 50px;
@@ -65,6 +132,7 @@ body {
     background-color: #ff0039;
     color: #ffffff;
     border: 1px solid #ff0039;
+    margin-right: 5px;
 }
 
 .guessList .items h5 {
@@ -110,4 +178,24 @@ body {
     font-weight: bolder;
     background-color: #3fb618;
     border: 3px solid #3fb618;
+}
+
+#message {
+    padding: 15px;
+    margin: 15px;
+    background: black;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    display: none;
+}
+
+#message2 {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-size: 39px;
+    font-weight: bolder;
+    color: red;
+    display: none;
 }
